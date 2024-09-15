@@ -1,0 +1,156 @@
+/* General styles for the whole body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* Light blue background */
+    color: #333;
+}
+
+/* Container for the CV to center it and add padding */
+#body {
+    display: flex;
+    flex-direction: row; /* Ensure columns are side by side by default */
+    max-width: 1200px; /* Max width to ensure it doesn’t get too wide */
+    margin: 20px auto; /* Center the container horizontally */
+    padding: 20px;
+    background-color: #ffffff; /* White background for the CV */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Styles for the left column */
+#col1 {
+    width: 30%;
+    margin-right: 20px; /* Space between columns */
+    margin-left: 10%;;
+}
+
+#col2 {
+    width: 70%;
+}
+
+/* Adjust the columns to be stacked vertically on smaller screens */
+@media (max-width: 768px) {
+    #body {
+        flex-direction: column; /* Stack columns vertically on smaller screens */
+    }
+
+    #col1, #col2 {
+        width: 100%; /* Full width for each column in the stacked layout */
+        margin-right: 0; /* No margin between columns when stacked */
+        margin-bottom: 20px; /* Space below each column */
+    }
+}
+
+/* Styles for the profile picture */
+
+#pfp {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden; /* Ensure the image fits within the div */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    object-fit: cover;
+}
+
+#pfp img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Name and headers styles */
+#Name {
+    color: #0056b3; /* Darker blue for the name */
+}
+
+.h3 {
+    padding-bottom: 5px;
+    color: #0056b3; /* Darker blue for headers */
+    margin-top: 0;
+}
+
+/* Contact information styles */
+#divContact {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 0.75rem;
+}
+
+#divContact i {
+    color: #007bff; /* Blue icons */
+    margin-right: 10px;
+}
+
+#divContact h5, #divContact h4, #divContact a {
+    display: inline;
+    color: #333;
+}
+
+#divContact a {
+    color: #007bff; /* Blue links */
+    text-decoration: none;
+}
+
+#divContact a:hover {
+    text-decoration: underline;
+}
+
+/* Lists with spacing */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Button styles */
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    height: 20px;
+    width: 70px;
+    cursor: pointer; /* Add cursor pointer to indicate it’s clickable */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: #ffffff; /* White background for printing */
+        color: #000;
+    }
+
+    #one{
+        display: none;
+    }
+    
+    #col1 {
+        width: 40%; /* Adjusted width for printing */
+        margin-right: 20px; /* Keep margin between columns */
+        margin-left: 0; /* Reset left margin to avoid extra spacing */
+    }
+
+    #col2 {
+        width: 60%; /* Adjusted width for printing */
+    }
+
+    #body {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: row; /* Ensure columns are side by side in print */
+    }
+    
+    button {
+        display: none; /* Hide print button on print */
+    }
+}

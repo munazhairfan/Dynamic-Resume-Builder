@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV-Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cvStyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="app.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <section id="one">    <div id="upperDiv"></div>
+        <h1 style="text-align: center;">Resume Generator</h1>
+        <h5 style="text-align: center;">By Munazha</h5>
+    </div>
+    <div id="lowerDiv">    
+        <div id="column1">
+            <h2 style="text-align: center" id="PI"><u>Personal Information</u></h2>
+            <label for="YourName">Your Name</label><br>
+            <input type="text" id="YourName" placeholder="Enter Your Name"><br>
+            <br>
+            <label for="YourNum">Your Phone Number</label><br>
+            <input type="text" id="YourNum" placeholder="Enter Your Phone Number"><br>
+            <br>
+
+            <label for="YourAdd">Your Address</label><br>
+            <textarea type="text" id="YourAdd" placeholder="Enter Your Address"></textarea><br>
+
+            <h3 style="text-align: center;" id="links"><b><u>Links</u></b></h3>
+
+            <label for="fb">Facebook</label><br>
+            <input type="text" id="fb" placeholder="Enter the url"><br>
+            <br>
+
+            <label for="insta">Instagram</label><br>
+            <input type="text" id="insta" placeholder="Enter the url"><br>
+            <br>
+
+            <label for="gm">Gmail ID</label><br>
+            <input type="text" id="gm" placeholder="Enter your gmail id"><br>
+            <br>
+
+            <label for="profilePic">Your Profile Picture</label>
+            <input type="file" id="profilePic">
+
+        </div>
+        <div id="column2">
+            <h2  style="text-align: center;"><u>Professional Information</u></h2>
+
+            <label for="obj">Objective </label><br>
+            <textarea type="text" id="obj" placeholder="Type Here" style="height: 100px;"></textarea><br>
+            <br>
+
+            <label for="WE">Work Experience</label><br>
+            <textarea type="text" id="WE" class="WEField" placeholder="Type Here"></textarea><br>
+            <button id="WEbtn" onclick="addWEField()">Add</button>
+            <br><br>
+
+            <label for="AQ">Academic Qualification</label><br>
+            <textarea type="text" id="AQ" class="AQField" placeholder="Type Here"></textarea><br>
+            <button id="AQbtn" onclick="addAQField()">Add</button>
+            <br><br>
+
+            <label for="SK">Skills</label><br>
+            <textarea type="text" id="SK" class="SKField" placeholder="Type Here"></textarea><br>
+            <button id="skbtn" onclick="addSkillField()">Add</button>
+            <br><br>
+        </div>
+    </div>
+    <h5 id="scroll">scroll down!</h5>
+    <button id="generate" onclick="generate()">Generate Resume</button></section>
+    <section id="two">
+        <div id="body">   
+            <div id="col1">
+                <div id="container1">
+                    <div id="pfp">
+                        <img src="defaultPFP.png" id="profileImage">
+                    </div>
+                    
+                    <h2 id="Name" style="text-align: center; border-bottom: 1px solid blue;">Marie Doe</h2>
+                    <h3 class="h3" style="line-height: 1px; margin-top: 50px;"><b>Contact Info</b></h3>
+                    <div id="divContact">
+                        <div>
+                            <i class="fa-solid fa-phone"></i><h4 id="PhoneNumber">+0123456789</h4>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <h4 id="Address">123 abc, EF</h4>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-facebook"></i>
+                            <a id="Facebook" href="https://www.facebook.com/newprofile" target="_blank" rel="noopener noreferrer">Facebook Profile</a>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-instagram"></i>
+                            <a id="Instagram" href="https://www.instagram.com/newprofile" target="_blank" rel="noopener noreferrer">Instagram Profile</a>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-envelope"></i>
+                            <a id="Gmail" href="mailto:adcdef@gmail.com">adcdef@gmail.com</a>
+                        </div>
+                    </div>
+                    <br>
+                    <br><br>
+                    <h3 class="h3">Skills</h3>
+                    <div id="skill">
+                        <ul id="Skills">
+                        <li>Digital Marketing</li>
+                        <li>Google Analytics</li>
+                        <li>Content Marketing</li>
+                    </ul></div>
+                </div>
+            </div>
+            <div id="col2">
+                <div id="container2">
+                    <h3 class="h3">Objective</h3>
+                    <p id="Objective">As a motivated and dedicated professional, I'm excited to apply my skills 
+                        and experience to a new role. With a strong background in [industry/field],
+                         I possess a unique combination of skills that enable me to make a valuable contribution.
+                          I'm a quick learner, team player, and creative problem solver seeking a challenging position
+                           to grow and make an impact.</p>
+                           <br><br>
+                    <h3 class="h3">Education</h3>
+                    <ul id="Education">
+                        <li>High School Diploma - Lincoln High School</li>
+                        <li>Bachelor's Degree - University of California</li>
+                        <li>Master's Degree - New York University</li>
+                        <li>Ph.D. - Harvard University</li>
+                    </ul>
+                    <br><br>
+                    <h3 class="h3">Work Experience</h3>
+                    <ul id="WorkExperience">
+                        <li>Retail Sales Associate - Department Store</li>
+                        <li>Camp Counselor - Summer Camp</li>
+                        <li>Data Entry Clerk - Non-Profit Organization</li>
+                        <li>Freelance Writer - Various Clients</li>
+                    </ul>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        <button id="printt" onclick="print()" style="margin: 10px;">Print</button>
+        <button id="downloadPDF"><i class="fa-solid fa-file-arrow-down"></i> PDF</button>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const generateButton = document.getElementById('generate');
+                const downloadButton = document.getElementById('downloadPDF');
+                const printButton = document.getElementById('printt'); // Assuming the print button ID is 'printt'
+                const resumeElement = document.getElementById('two');
+        
+                function showTwo() {
+                    if (resumeElement) {
+                        resumeElement.style.display = 'block';
+                    }
+                }
+        
+                function downloadPDF() {
+                    if (resumeElement) {
+                        // Temporarily hide buttons for PDF generation
+                        if (printButton) {
+                            printButton.style.visibility = 'hidden';
+                        }
+                        if (downloadButton) {
+                            downloadButton.style.visibility = 'hidden';
+                        }
+        
+                        const opt = {
+                            margin: 1,
+                            filename: 'resume.pdf',
+                            image: { type: 'jpeg', quality: 0.98 },
+                            html2canvas: { scale: 2 },
+                            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                        };
+        
+                        // Create PDF and add options
+                        html2pdf().from(resumeElement).set(opt).save().then(() => {
+                            // Make buttons visible again after PDF is downloaded
+                            if (printButton) {
+                                printButton.style.visibility = 'visible';
+                            }
+                            if (downloadButton) {
+                                downloadButton.style.visibility = 'visible';
+                            }
+                        });
+                    }
+                }
+        
+                if (generateButton) {
+                    generateButton.addEventListener('click', showTwo);
+                }
+        
+                if (downloadButton) {
+                    downloadButton.addEventListener('click', downloadPDF);
+                }
+            });
+        </script>
+    </section>
+</body>
+</html>
